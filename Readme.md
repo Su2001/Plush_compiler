@@ -4,6 +4,7 @@ Author: Lishun Su fc56375
 
 ## Introduction
 PLush is new a programming language, designed to teach programming. It's goal is to be simple, and modular.
+The `plush_testsuite` contains the tests and the examples for the program.
 
 # Structure of the project
 The project is structured by lexer, parser, type checker and code generator.
@@ -31,6 +32,12 @@ function void main(){
 } 
 ```
 After declaring the type, specify the condition inside parentheses.
+
+# Limitations
+- This project has no operations for data type `char` and `string` if you want do something with those types better create c files and link with it.
+- This project has a lot of optimization can be done, like in parser, code gen 
+- For liquid type check it cant check if the assign value is a paranmeter or an array(eg: `var i : int (i > 0):= array[1]`)
+- A function with return type differet void must have return at the end of the function returns inside of while or if is not counted
 
 # How to excute
 

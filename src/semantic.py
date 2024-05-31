@@ -195,7 +195,9 @@ def check(node):
                 if not vartype[1]:  
                     raise Exception("Variable %s is defined as val you cant change this variable" % (varn)) 
                 if vartype[0] != assgntype:
-                    raise Exception("Variable %s is of type %s and does not support %s" % (varn, vartype, assgntype))
+                    raise Exception("Variable %s is of type %s and does not support %s" % (varn, vartype[0], assgntype))
+                if vartype[0] in ["int","bool","float"]:
+                    checker.solve(name= varn, newvalue=node.value)
             else:
                 return vartype[0]
         case Array():
