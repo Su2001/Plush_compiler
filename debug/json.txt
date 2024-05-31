@@ -1,0 +1,96 @@
+{
+   "program": [
+      {
+         "name": "main",
+         "type": "void",
+         "params": [
+            {
+               "variable": {
+                  "name": "args",
+                  "type": {
+                     "array": {
+                        "array": "char"
+                     }
+                  },
+                  "liquidCheck": null,
+                  "value": null
+               },
+               "changeble": false
+            }
+         ],
+         "body": [
+            {
+               "variable": {
+                  "name": "p",
+                  "type": "int",
+                  "liquidCheck": {
+                     "operation": "and",
+                     "left_value": {
+                        "operation": ">",
+                        "left_value": {
+                           "name": "p",
+                           "value": null
+                        },
+                        "right_value": {
+                           "value": 0
+                        }
+                     },
+                     "right_value": {
+                        "operation": "<",
+                        "left_value": {
+                           "name": "p",
+                           "value": null
+                        },
+                        "right_value": {
+                           "value": 10
+                        }
+                     }
+                  },
+                  "value": {
+                     "value": 1
+                  }
+               },
+               "changeble": true
+            },
+            {
+               "variable": {
+                  "name": "o",
+                  "type": "bool",
+                  "liquidCheck": null,
+                  "value": {
+                     "value": true
+                  }
+               },
+               "changeble": true
+            },
+            {
+               "variable": {
+                  "name": "y",
+                  "type": "int",
+                  "liquidCheck": {
+                     "operation": ">",
+                     "left_value": {
+                        "name": "y",
+                        "value": null
+                     },
+                     "right_value": {
+                        "value": 2
+                     }
+                  },
+                  "value": {
+                     "operation": "+",
+                     "left_value": {
+                        "name": "p",
+                        "value": null
+                     },
+                     "right_value": {
+                        "value": 3
+                     }
+                  }
+               },
+               "changeble": true
+            }
+         ]
+      }
+   ]
+}
