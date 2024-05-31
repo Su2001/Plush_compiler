@@ -16,7 +16,7 @@ TREE_FLAG=false
 FILENAME=""
 
 # Parse the arguments
-while [[ "$#" -gt 0 ]]; do
+while [ "$#" -gt 0 ]; do
     case $1 in
         --tree) TREE_FLAG=true ;;
         *.pl) FILENAME="$1" ;;
@@ -33,7 +33,7 @@ fi
 
 # Call the compiler
 if $TREE_FLAG; then
-    python3 main.py --tree "$FILENAME"
+    python3 src/main.py --tree "$FILENAME"
 else
-    python3 main.py "$FILENAME"
+    python3 src/main.py "$FILENAME"
 fi

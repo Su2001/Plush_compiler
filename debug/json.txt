@@ -1,6 +1,164 @@
 {
    "program": [
       {
+         "variable": {
+            "name": "toFind",
+            "type": "int",
+            "liquidCheck": null,
+            "value": {
+               "value": 9
+            }
+         },
+         "changeble": false
+      },
+      {
+         "name": "isPrime",
+         "type": "int",
+         "params": [
+            {
+               "variable": {
+                  "name": "target",
+                  "type": "int",
+                  "liquidCheck": null,
+                  "value": null
+               },
+               "changeble": false
+            }
+         ],
+         "body": [
+            {
+               "variable": {
+                  "name": "max",
+                  "type": "int",
+                  "liquidCheck": null,
+                  "value": {
+                     "operation": "-",
+                     "left_value": {
+                        "name": "target",
+                        "value": null
+                     },
+                     "right_value": {
+                        "value": 1
+                     }
+                  }
+               },
+               "changeble": false
+            },
+            {
+               "variable": {
+                  "name": "count",
+                  "type": "int",
+                  "liquidCheck": null,
+                  "value": {
+                     "value": 2
+                  }
+               },
+               "changeble": true
+            },
+            {
+               "variable": {
+                  "name": "result",
+                  "type": "int",
+                  "liquidCheck": null,
+                  "value": {
+                     "value": -1
+                  }
+               },
+               "changeble": true
+            },
+            {
+               "condition": {
+                  "operation": "and",
+                  "left_value": {
+                     "operation": "<=",
+                     "left_value": {
+                        "name": "count",
+                        "value": null
+                     },
+                     "right_value": {
+                        "name": "max",
+                        "value": null
+                     }
+                  },
+                  "right_value": {
+                     "operation": "!=",
+                     "left_value": {
+                        "operation": "%",
+                        "left_value": {
+                           "name": "target",
+                           "value": null
+                        },
+                        "right_value": {
+                           "name": "count",
+                           "value": null
+                        }
+                     },
+                     "right_value": {
+                        "value": 0
+                     }
+                  }
+               },
+               "body": [
+                  {
+                     "name": "count",
+                     "value": {
+                        "operation": "+",
+                        "left_value": {
+                           "name": "count",
+                           "value": null
+                        },
+                        "right_value": {
+                           "value": 1
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "condition": {
+                  "operation": "or",
+                  "left_value": {
+                     "operation": "==",
+                     "left_value": {
+                        "name": "target",
+                        "value": null
+                     },
+                     "right_value": {
+                        "value": 1
+                     }
+                  },
+                  "right_value": {
+                     "operation": "==",
+                     "left_value": {
+                        "name": "count",
+                        "value": null
+                     },
+                     "right_value": {
+                        "name": "target",
+                        "value": null
+                     }
+                  }
+               },
+               "thenPart": [
+                  {
+                     "name": "result",
+                     "value": {
+                        "value": 1
+                     }
+                  }
+               ],
+               "elsePart": []
+            },
+            {
+               "name": "isPrime",
+               "value": {
+                  "name": "result",
+                  "value": null
+               }
+            }
+         ]
+      },
+      {
          "name": "main",
          "type": "void",
          "params": [
@@ -21,74 +179,33 @@
          "body": [
             {
                "variable": {
-                  "name": "p",
+                  "name": "result",
                   "type": "int",
-                  "liquidCheck": {
-                     "operation": "and",
-                     "left_value": {
-                        "operation": ">",
-                        "left_value": {
-                           "name": "p",
-                           "value": null
-                        },
-                        "right_value": {
-                           "value": 0
-                        }
-                     },
-                     "right_value": {
-                        "operation": "<",
-                        "left_value": {
-                           "name": "p",
-                           "value": null
-                        },
-                        "right_value": {
-                           "value": 10
-                        }
-                     }
-                  },
-                  "value": {
-                     "value": 1
-                  }
-               },
-               "changeble": true
-            },
-            {
-               "variable": {
-                  "name": "o",
-                  "type": "bool",
                   "liquidCheck": null,
                   "value": {
-                     "value": true
+                     "name": "isPrime",
+                     "params": [
+                        {
+                           "value": {
+                              "name": "toFind",
+                              "value": null
+                           }
+                        }
+                     ]
                   }
                },
-               "changeble": true
+               "changeble": false
             },
             {
-               "variable": {
-                  "name": "y",
-                  "type": "int",
-                  "liquidCheck": {
-                     "operation": ">",
-                     "left_value": {
-                        "name": "y",
+               "name": "print_int",
+               "params": [
+                  {
+                     "value": {
+                        "name": "result",
                         "value": null
-                     },
-                     "right_value": {
-                        "value": 2
-                     }
-                  },
-                  "value": {
-                     "operation": "+",
-                     "left_value": {
-                        "name": "p",
-                        "value": null
-                     },
-                     "right_value": {
-                        "value": 3
                      }
                   }
-               },
-               "changeble": true
+               ]
             }
          ]
       }

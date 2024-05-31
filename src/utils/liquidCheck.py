@@ -45,13 +45,14 @@ class Checker:
 
     def solve(self, name,  newvalue):
         solver = Solver()
-
         o_typ, _, o_x, o_c, o_dep = self.get(name)
+        if  o_c == None:
+            return
+        
         for i in o_dep :
             _, temp_v, temp_x, _, _ = self.get(i)
             solver.add(temp_x == temp_v)
-        if  o_c == None:
-            return
+        
         newv =self.solve_value(newvalue)
         solver.add(o_x == newv)
         solver.add(o_c)

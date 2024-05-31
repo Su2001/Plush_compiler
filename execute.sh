@@ -7,7 +7,7 @@ if [ ! -f result.ll ]; then
 fi
 
 # Step 1: Compile LLVM IR to assembly
-11c result.11
+llc result.ll
 if [ $? -ne 0 ]; then
     echo "Error: llc result failed!"
     exit 1
@@ -21,14 +21,14 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 3: Compile aux_functions.c to object file
-gcc -c aux_functions.c
+gcc -c aux_functions.c -lm
 if [ $? -ne 0 ]; then
     echo "Error: gcc result of aux_functions.c failed!"
     exit 1
 fi
 
 # Step 4: Link the object files and create the executable
-gcc -no-pie -fno-PIE result.o aux_functions.o -o a.out
+gcc result.o aux_functions.o -o a.out -lm
 if [ $? -ne 0 ]; then
     echo "Error: linking failed!"
     exit 1

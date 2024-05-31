@@ -38,8 +38,15 @@ After declaring the type, specify the condition inside parentheses.
 - This project has a lot of optimization can be done, like in parser, code gen 
 - For liquid type check it cant check if the assign value is a paranmeter or an array(eg: `var i : int (i > 0):= array[1]`)
 - A function with return type differet void must have return at the end of the function returns inside of while or if is not counted
+- Array cant define as global variable
+- In a function, you cannot use an array as a parameter
 
 # How to excute
+
+** Important : You may got this error `-bash: ./plush.sh: /bin/bash^M: bad interpreter: No such file or directory` when you excute the bash it is because when I am uploading the bash to git it sofers some changes by git ` LF will be replaced by CRLF the next time Git touches it` (this change) **
+How to solve
+1.  sudo apt-get install dos2unix(if you are using linux)
+2. dos2unix plush.sh
 
 1. Excute the command `sh setup.sh` (it will build the docker image and run a container)
 

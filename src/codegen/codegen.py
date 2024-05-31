@@ -433,6 +433,10 @@ class Compiler:
                 return ir.Constant(Type, value), Type
             case Assignment():
                 ptr, Type = self.env.lookup(node.name)
+                if isinstance(Type, ir.ArrayType):
+                    ptr = self.builder.gep(ptr, [ir.Constant(ir.IntType(32), 0), ir.Constant(ir.IntType(32), 0)])
+                    Type = ptr.type
+                    return ptr, Type
                 return self.builder.load(ptr),Type
             case String():
                 string, Type = self.__convert_string(node.value)

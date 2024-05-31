@@ -11,18 +11,12 @@ RUN apt-get install -y\
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /plush
-COPY codegen/ /plush/codegen/
+COPY src/ /plush/src/
 COPY requirements.txt /plush/requirements.txt
-COPY debug/ /plush/debug/
-COPY parsetab.py /plush/parsetab.py
 COPY plush_testsuite/ /plush/plush_testsuite/
-COPY utils/ /plush/utils/
-COPY tokens.py /plush/tokens.py
-COPY main.py /plush/main.py
-COPY parseRules.py /plush/parseRules.py
-COPY semantic.py /plush/semantic.py
+COPY aux_functions.c /plush/aux_functions.c
 COPY plush.sh /plush/plush.sh
-COPY plush.sh /plush/execute.sh
+COPY execute.sh /plush/execute.sh
 
 
 
@@ -30,4 +24,5 @@ WORKDIR /plush
 RUN pip3 install -r requirements.txt
 
 RUN chmod +x plush.sh
+RUN chmod +x execute.sh
 
