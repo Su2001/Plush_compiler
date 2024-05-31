@@ -272,26 +272,29 @@ def check(node):
             t = check(node.condition)
             if t != 'bool':
                 raise Exception ("while condition requires a boolean. Got %s instead." % (t))
-            
+            contexts.append(Context("while"))
             # check body
             for i in node.body:
                 check(i)
+            pop()
         case If():
             t = check(node.condition)
             if t != 'bool':
                 raise Exception ("condition requires a boolean. Got %s instead." % (t))
-            
+            contexts.append(Context("if"))
             # check then
             for i in node.thenPart:
                 check(i)
             #check else
-
+            pop()
             if node.elsePart:
                 if isinstance(node.elsePart, If):
                     check(node.elsePart)
                 else:
+                    contexts.append(Context("else"))
                     for i in node.elsePart:
                         check(i)  
+                    pop()
         case Neg():
             t = check(node.value)
             if t != 'int' | t != 'float':
